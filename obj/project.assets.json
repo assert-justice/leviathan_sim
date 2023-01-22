@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ttrpg\\Leviathan\\leviathan_sim\\leviathan_sim.csproj",
+      "projectUniqueName": "C:\\Users\\riley\\Documents\\ttrpgs\\Leviathan\\leviathan_sim\\leviathan_sim.csproj",
       "projectName": "leviathan_sim",
-      "projectPath": "F:\\ttrpg\\Leviathan\\leviathan_sim\\leviathan_sim.csproj",
+      "projectPath": "C:\\Users\\riley\\Documents\\ttrpgs\\Leviathan\\leviathan_sim\\leviathan_sim.csproj",
       "packagesPath": "C:\\Users\\riley\\.nuget\\packages\\",
-      "outputPath": "F:\\ttrpg\\Leviathan\\leviathan_sim\\obj\\",
+      "outputPath": "C:\\Users\\riley\\Documents\\ttrpgs\\Leviathan\\leviathan_sim\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\riley\\AppData\\Roaming\\NuGet\\NuGet.Config"

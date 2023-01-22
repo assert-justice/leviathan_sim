@@ -1,0 +1,15 @@
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\bin\Debug\net7.0\leviathan_sim.exe
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\bin\Debug\net7.0\leviathan_sim.deps.json
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\bin\Debug\net7.0\leviathan_sim.runtimeconfig.json
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\bin\Debug\net7.0\leviathan_sim.dll
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\bin\Debug\net7.0\leviathan_sim.pdb
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.csproj.AssemblyReference.cache
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.AssemblyInfoInputs.cache
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.AssemblyInfo.cs
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.csproj.CoreCompileInputs.cache
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.dll
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\refint\leviathan_sim.dll
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.pdb
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\leviathan_sim.genruntimeconfig.cache
+C:\Users\riley\Documents\ttrpgs\Leviathan\leviathan_sim\obj\Debug\net7.0\ref\leviathan_sim.dll

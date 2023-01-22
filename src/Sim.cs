@@ -1,21 +1,77 @@
+using System.Text.Json;
+using System.Reflection;
 
-// For our sins, the Sim class is a singleton.
-// It is initialized once in Program.cs
-public class Sim{
-    private static Sim? instance = null;
+public class SimData{
     public Dictionary<Guid,Location> locations;
-    public static Sim Get(){
-        if(instance == null) throw new Exception("Sim was not initialized!");
-        return instance;
-    }
-    public static void Init(){
-        if(instance != null) throw new Exception("Attempted to initialize Sim multiple times!");
-        instance = new Sim();
-    }
-    private Sim(){
+    public Guid? rootId = null;
+    public SimData(){
         locations = new Dictionary<Guid, Location>();
     }
+}
+public class Sim{
+    private static SimData? data = null;
+    private static JsonSerializerOptions jsonOptions = new JsonSerializerOptions {WriteIndented = true, IncludeFields = true};
+    public static SimData Data{get{
+        if(data == null) throw new Exception("Sim was not initialized!");
+        return data;
+    }}
+    public static void Init(){
+        data = new SimData();
+        var galaxy = Galaxy.New("Galaxy");
+        data.rootId = galaxy.data.id;
+        AddLocation(galaxy);
+        galaxy.Init();
+    }
+    public static void Load(string sourceFile){
+        if(!File.Exists(sourceFile)) throw new Exception($"Source path {sourceFile} does not exist!");
+        var text = File.ReadAllText(sourceFile);
+        // This should probably be wrapped in a try/catch block
+        data = JsonSerializer.Deserialize<SimData>(text, jsonOptions);
+        if(data == null) throw new Exception("dunno");
+        // Convert the locations into their true types
+        foreach (var (id, location) in data.locations.AsEnumerable())
+        {
+            switch (location.data.type)
+            {
+                case "Galaxy":
+                data.locations[id] = new Galaxy(location.data);
+                break;
+                case "Cluster":
+                data.locations[id] = new Cluster(location.data);
+                break;
+                case "StarSystem":
+                data.locations[id] = new StarSystem(location.data);
+                break;
+                default:
+                break;
+            }
+        }
+    }
+    public static void Save(string destFile, SimData? simData = null){
+        if(simData == null) simData = Data;
+        var text = JsonSerializer.Serialize(simData, jsonOptions);
+        File.WriteAllText(destFile, text);
+    }
     public static void AddLocation(Location location){
-        Get().locations.Add(location.id, location);
+        Data.locations.Add(location.data.id, location);
+    }
+    public static SimData GetLocation(Guid id){
+        if(!Data.locations.ContainsKey(id)) throw new Exception($"Id {id} does not exist!");
+        var openIds = new Queue<Guid>();
+        openIds.Enqueue(id);
+        var root = Data.locations[id];
+        Console.WriteLine(root.GetType().Name);
+        root.Init();
+        var simData = new SimData();
+        simData.rootId = id;
+        while(openIds.Count() > 0){
+            var location = Data.locations[openIds.Dequeue()];
+            simData.locations.Add(location.data.id, location);
+            foreach (var _id in location.data.childIds)
+            {
+                openIds.Enqueue(_id);
+            }
+        }
+        return simData;
     }
 }

@@ -1,26 +1,40 @@
 
-public class Location{
+public class LocationData{
     public Guid id;
     public string name;
     public Guid? parentId;
-    public List<Guid> children;
+    public List<Guid> childIds;
     public Vector3 localPosition;
     public bool initialized;
-    public Location(Guid? parentId = null, string name = "[No Name Provided]", Vector3? localPosition = null){
-        this.id = System.Guid.NewGuid();
-        this.localPosition = localPosition == null ? new Vector3() : localPosition;
-        this.initialized = false;
-        this.parentId = parentId;
+    public string type;
+    public Dictionary<string, string> properties;
+    
+    public LocationData(string name, string type){
         this.name = name;
-        children = new List<Guid>();
-        Sim.AddLocation(this);
+        this.type = type;
+        id = System.Guid.NewGuid();
+        parentId = new Guid();
+        childIds = new List<Guid>();
+        localPosition = new Vector3();
+        initialized = false;
+        properties = new Dictionary<string, string>();
+    }
+}
+public class Location{
+    public LocationData data;
+    public static Location New(string name){
+        var data = new LocationData(name, "Location");
+        return new Location(data);
+    }
+    public Location(LocationData data){
+        this.data = data;
     }
     public void AddChild(Location child){
-        children.Add(child.id);
-        child.parentId = id;
+        data.childIds.Add(child.data.id);
+        child.data.parentId = data.id;
+        Sim.AddLocation(child);
     }
     virtual public void Init(){
-        // Does nothing, designed to be overridden.
-        initialized = true;
+        data.initialized = true;
     }
 }

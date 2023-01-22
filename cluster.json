@@ -1,0 +1,44 @@
+{
+  "locations": {
+    "1fd134f7-e989-44ec-930e-cc03723d5879": {
+      "data": {
+        "id": "1fd134f7-e989-44ec-930e-cc03723d5879",
+        "name": "Nero",
+        "parentId": "1a32ec0c-5adc-4614-8fdb-088e61f6645a",
+        "childIds": [
+          "4ce75751-ed77-4604-bdb4-2652e0457fc1",
+          "0059ab7f-2b0f-4504-8286-87f8ecf395ce"
+        ],
+        "localPosition": {},
+        "initialized": true,
+        "type": "Cluster",
+        "properties": {}
+      }
+    },
+    "4ce75751-ed77-4604-bdb4-2652e0457fc1": {
+      "data": {
+        "id": "4ce75751-ed77-4604-bdb4-2652e0457fc1",
+        "name": "Perseus",
+        "parentId": "1fd134f7-e989-44ec-930e-cc03723d5879",
+        "childIds": [],
+        "localPosition": {},
+        "initialized": false,
+        "type": "StarSystem",
+        "properties": {}
+      }
+    },
+    "0059ab7f-2b0f-4504-8286-87f8ecf395ce": {
+      "data": {
+        "id": "0059ab7f-2b0f-4504-8286-87f8ecf395ce",
+        "name": "Perseus",
+        "parentId": "1fd134f7-e989-44ec-930e-cc03723d5879",
+        "childIds": [],
+        "localPosition": {},
+        "initialized": false,
+        "type": "StarSystem",
+        "properties": {}
+      }
+    }
+  },
+  "rootId": "1fd134f7-e989-44ec-930e-cc03723d5879"
+}
