@@ -1,5 +1,5 @@
 public class Vector3{
-    double x, y, z;
+    public double x, y, z;
     public Vector3(){
         x = 0; y = 0; z = 0;
     }

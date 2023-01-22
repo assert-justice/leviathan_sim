@@ -15,7 +15,8 @@
                 var rootId = cli.NextGuid();
                 var destFilename = cli.Next();
                 Sim.Load(sourceFilename);
-                var data = Sim.GetLocation(rootId);
+                var deep = cli.Match("--deep");
+                var data = Sim.GetLocation(rootId, deep);
                 Sim.Save(destFilename, data);
                 // Because locations are created lazily as requested the data can be changed.
                 // Therefore we need to save the structure back to source.

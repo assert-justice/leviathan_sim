@@ -55,13 +55,29 @@ public class Sim{
     public static void AddLocation(Location location){
         Data.locations.Add(location.data.id, location);
     }
-    public static SimData GetLocation(Guid id){
+    public static Location InitLocation(Guid id){
+        var location = Data.locations[id];
+        if(!location.data.initialized){
+            location.Init();
+        }
+        return location;
+    }
+    public static void InitLocationTree(Guid rootId){
+        var location = InitLocation(rootId);
+        foreach (var childId in location.data.childIds)
+        {
+            InitLocationTree(childId);
+        }
+    }
+    public static SimData GetLocation(Guid id, bool deep){
         if(!Data.locations.ContainsKey(id)) throw new Exception($"Id {id} does not exist!");
         var openIds = new Queue<Guid>();
         openIds.Enqueue(id);
-        var root = Data.locations[id];
-        Console.WriteLine(root.GetType().Name);
-        root.Init();
+        if(deep) InitLocationTree(id);
+        else InitLocation(id);
+        // var root = Data.locations[id];
+        // Console.WriteLine(root.GetType().Name);
+        // root.Init();
         var simData = new SimData();
         simData.rootId = id;
         while(openIds.Count() > 0){
